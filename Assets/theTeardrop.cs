@@ -40,7 +40,7 @@ public class theTeardrop : MonoBehaviour {
    public int sumOfSerialNumberDigits = 0;
    public int numberOfOnIndicators = 0;
    public int numberOfOffIndicators = 0;
-   public int numberOfSolvedModules = 0;
+   public int numberOfModules = 0;
    public int numberOfSerialNumberLetters = 0;
    public int matchesBetweenSerialNumberAndTEARDROPS = 0;
    public int oddIndexToMove = 0;
@@ -148,25 +148,25 @@ public class theTeardrop : MonoBehaviour {
          Debug.Log("Current string: " + correctString);
       }
 
-      foreach (var solvedModule in Bomb.GetSolvedModuleNames()){
-         numberOfSolvedModules++;
+      foreach (var module in Bomb.GetModuleNames()){
+         numberOfModules++;
       }
 
-      if (numberOfSolvedModules % 2 == 0){
+      if (numberOfModules % 2 == 0){
          evenIndexToMove = Bomb.GetSerialNumberNumbers().Last()-1;
 
          correctString = MoveCharacterToEnd(correctString, evenIndexToMove);
 
-         Debug.Log("Since the number of solved modules is even, the letter in the position of the last digit of the serial number must be extracted, then appended. ");
+         Debug.Log("Since the total number of modules is even, the letter in the position of the last digit of the serial number must be extracted, then appended. ");
          Debug.Log("Current string: " + correctString);
       }
 
-      if (numberOfSolvedModules % 2 == 1){
+      if (numberOfModules % 2 == 1){
          oddIndexToMove = Bomb.GetSerialNumberNumbers().First()-1;
 
          correctString = MoveCharacterToEnd(correctString, oddIndexToMove);
 
-         Debug.Log("Since the number of solved modules is odd, the letter in the position of the first digit of the serial number must be extracted, then appended. ");
+         Debug.Log("Since the total number of modules is odd, the letter in the position of the first digit of the serial number must be extracted, then appended. ");
          Debug.Log("Current string: " + correctString);
       }
 
@@ -477,6 +477,11 @@ public class theTeardrop : MonoBehaviour {
    }
 
    void TeardropPressed() {
+
+      Teardrop.AddInteractionPunch();
+      if (ModuleSolved){
+         return;
+      }
       string time = Bomb.GetFormattedTime();
       Debug.Log(time + " is the current time.");
       char lastDigitChar = time[time.Length - 1];
@@ -492,6 +497,7 @@ public class theTeardrop : MonoBehaviour {
 
 
    void Solve () {
+      Audio.PlaySoundAtTransform("TEARDROP SOLVED SOUND", transform);
       GetComponent<KMBombModule>().HandlePass();
    }
 
