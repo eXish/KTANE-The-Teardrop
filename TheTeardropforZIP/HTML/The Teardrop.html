@@ -13,7 +13,7 @@
             margin: 1em auto;
             border: none;
         }
-        .diagram {filter: grayscale()}
+        .diagram {filter: grayscale(1);}
         .page.strip { --strip-color: #012563; }    
         .page-footer::before { content: 'Page '; }
         .page-footer::after { content: ' of 5'; }
@@ -44,7 +44,7 @@
 
                 <ul>
                     <li>This module has a teardrop button and a display.</li>
-                    <li>To disarm the module, press the teardrop when the last digit of the serial number matches the resulting number.</li>
+                    <li>To disarm the module, press the teardrop when the last digit of the timer matches the resulting number.</li>
                 </ul>
                 
                 <h3>Step 1: Who is crying?</h3>
@@ -53,7 +53,7 @@
                     <li>Take the first indicator from that list and use Table 1 to identify who is crying.</li>
                     <li>Use the first column in reading order whose conditions are satisfied.</li>
                 </ul>
-            <table>
+            <table style="width: 700px;">
                 <caption><h3>Table 1.</h3></caption>
                 <tr>
                     <th>Indicator</th>
@@ -154,19 +154,16 @@
                     <th>none</th>
                     <td>Ixia</td>
                     <td>Novaria</td>
-                    <td>Joy</td>
+                    <td>Julian</td>
                     <td>Melissa</td>
                     <td>Cici</td>
                 </tr>
-
             </table>
-
-
             </div>
             <div class="page-footer relative-footer">1</div>
         </div>
 
-        <div class="page page-bg-02 strip">
+        <div class="page page-bg-06 strip">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
                 <span class="page-header-section-title">The Teardrop</span>
@@ -174,14 +171,14 @@
             <div class="page-content">
                 <h3>Step 2: What's wrong?</h3>
                 <ul>
-                    <li>First, create a string based on the alphabet (i.e., “ABCD…WXYZ”)</li>
+                    <li>First, create an alphabet string (i.e., “ABCD…WXYZ”).</li>
                     <li>Apply the following operations to the string if their respective conditions are satisfied.</li>
                 </ul>
-                <b><u><p style="text-align: center">Table 2. String Operations</p></u></b>
-                <table>
+                <p style="text-align: center"><b><u>Table 2. String Operations</u></b></p>
+                <table style="width: 700px;">
                     <tr>
-                        <th>Condition</th>
-                        <th>Operation</th>
+                        <th style="width:52%">Condition</th>
+                        <th style="width:48%">Operation</th>
                     </tr>
                     <tr>
                         <td>The product of the number of batteries and the number of ports is odd.</td>
@@ -192,7 +189,7 @@
                         <td>Take the letters ‘P’, ‘R’, ‘I’, ‘M’, and ‘E’ out, then place “PRIME” at the front of the string.</td>
                     </tr>
                     <tr>
-                        <td>There are more batteries than letters in the serial number</td>
+                        <td>There are more batteries than letters in the serial number.</td>
                         <td>Cut the string in half, then place the second half in front of the first.</td>
                     </tr>
                     <tr>
@@ -201,18 +198,18 @@
                     </tr>
                     <tr>
                         <td>The total number of modules is even.</td>
-                        <td>Take the letter in the position of the last digit of the serial number, then place it at the end.</td>
+                        <td>Take the letter in the position of the last digit* of the serial number, then place it at the end.</td>
                     </tr>
                     <tr>
                         <td>The total number of modules is odd.</td>
-                        <td>Take the letter in the position of the first digit of the serial number, then place it at the end.</td>
+                        <td>Take the letter in the position of the first digit* of the serial number, then place it at the end.</td>
                     </tr>
                     <tr>
                         <td><b><u>BUT!</u></b> If both a <b><u>single Parallel port </u></b> and a <b><u>Lit BOB indicator </u></b> are present:</td>
                         <td><b><u>Ignore all previous rules</u></b> and return to the original alphabet string.</td>
                     </tr>
                 </table>
-
+                <p>*If the digit is a 0, shift the 10th letter in the string instead.</p>
                 <ul>
                     <li>Then, based on this new string, place the original alphabet string above it.</li>
                     <li>Convert each letter of the text in the display from the top row to the bottom row to decrypt it.</li>
@@ -220,6 +217,7 @@
                 <p style="text-align:center;"><b>Example:</b><br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br> QKXYFJVDZSBGHLARNWUPIOCETM</p>
                 <p style="text-align:center;">(top row) PXLPXY → (bottom row) REGRET</p>
                 <p><b>Note:</b> See <b><u>Appendix T34RDR0P</u></b> for the list of possible decrypted words.</p>
+                
             </div>
             <div class="page-footer relative-footer">2</div>
         </div>
@@ -232,7 +230,7 @@
             <div class="page-content">
                 <h3>Step 3: It's okay. I'm here.</h3>
                 <ul>
-                    <li>Convert each letter of the name of the person crying into numbers based on their position in the alphabet (A = 1, B = 2, … Z = 26).</li>
+                    <li>Convert each letter of the name of the person crying into numbers based on their position in the alphabet (A = 1, B = 2, …, Z = 26).</li>
                     <li>Do the same for the decrypted word.<ul><li><b>Note:</b> See <b><u>Appendix T34RDR0P</u></b> for a useful link to make this operation convenient.</li></ul></li>
                     <li>Add all of the numbers from both the name and the decrypted word and modulo 10 their sum. </li>
                     <li>Press the teardrop when the <b><u>last digit of the timer</u></b> matches this number.</li>
@@ -332,27 +330,28 @@
                         <th style="background-color: #000000; color: white">Math Term</th>
                         <th style="background-color: #000000; color: white">Definition</th>
                     </tr>
-                    <tr>
+                    <tr style="height: 20px; padding: 0px">
                         <td>Prime</td>
-                        <td>A whole number that is only divisible by one and itself.
-
-                            <br><br>e.g., 2, 3, 5, 7, 11, …
+                        <td>
+                            <p style="margin-bottom: 10px">A whole number that is only divisible by one and itself.</p>
+                            <p>e.g., 2, 3, 5, 7, 11, …</p>
                         </td>
                     </tr>
                     <tr>
                         <td>Composite</td>
-                        <td>A whole number with at least one divisor other than 1 and itself.
-                            <br><br>e.g. all even numbers greater than 2, multiples of primes
+                        <td>
+                            <p style="margin-bottom: 10px">A whole number with at least one divisor other than 1 and itself.</p>
+                            <p>e.g. all even numbers greater than 2, multiples of primes</p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2"><br>Note: 1 is <u>neither prime nor composite.</u><br><br></td>
+                        <td colspan="2" ><p>Note: 1 is <u>neither prime nor composite.</u></p></td>
                     </tr>
                     <tr>
                         <td>modulo n</td>
-                        <td>An operation that means to add or subtract an integer by n until it is within the range of 0 to n-1 inclusive. 
-                            <br><br>Example: 8 modulo 6
-                            <br>8 - 6 = 2
+                        <td><p style="margin-bottom: 10px"> An operation that means to add or subtract an integer by n until it is within the range of 0 to n-1 inclusive. </p>
+                            <p>Example: 8 modulo 6</p>
+                            8 - 6 = 2
                             <br> Check: Is 2 within [0,7]?
                             <br> Since this is true, the operation stops.
                         </td>

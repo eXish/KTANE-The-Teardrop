@@ -1016,7 +1016,7 @@ p.caption {
     position: absolute;
     width: .85cm;
     inset: 0 auto 0 0;
-    opacity: 0.9; /* Set opacity to 1 for full color */
+    opacity: 0.3; /* Set opacity to 1 for full color */
     background-color: var(--strip-color);
     -webkit-print-color-adjust: exact;
 }

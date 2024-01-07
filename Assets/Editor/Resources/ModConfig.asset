@@ -14,20 +14,26 @@ MonoBehaviour:
   id: theTeardrop
   title: The Teardrop
   author: xmtc
-  description: 'I was definitely not projecting when making this module.
+  description: 'Version 1.2
+
+
+    I was definitely not projecting when making this module.
 
 
     Get a name, decrypt a display, then determine when to press the teardrop based
     on calculations.
 
 
-    Credits to jumabre and Emik for their assistance for my second mod.
+    Credits to jumabre and Emik (KTANE discord) for their assistance for my second
+    mod.
+
+    Credits to Hazel (KTANE discord) for Logbot and manual making assistance.
 
 
     moduleId: theTeardrop
 
 
     The manual can be found in the manuals folder of the game or at ktane.timwi.de.'
-  version: 1.0
+  version: 1.2
   outputFolder: build
   previewImage: {fileID: 2800000, guid: fe3dc364d91f73c4b9e1630d5f04ffad, type: 3}
