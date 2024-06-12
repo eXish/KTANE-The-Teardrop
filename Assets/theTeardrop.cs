@@ -525,14 +525,36 @@ public class theTeardrop : MonoBehaviour {
    }
 
 #pragma warning disable 414
-   private readonly string TwitchHelpMessage = @"Use !{0} to do something.";
+   private readonly string TwitchHelpMessage = @"Use !{0} press (number) to press the teardrop when the last digit of the timer matches said number.";
 #pragma warning restore 414
 
    IEnumerator ProcessTwitchCommand (string Command) {
+      Command = Command.Trim().ToUpper();
       yield return null;
+      string[] Commands = Command.Split(' ');
+      Debug.Log(Commands[0]);
+      Debug.Log(Commands[1]);
+      Debug.Log(Commands[1].GetType());
+      if (Commands[0] != "PRESS" || !char.IsNumber(Commands[1], 0))
+      {
+         yield return "sendtochaterror Error! Check if 'press' is spelled correctly, or if the input beside press is actually a number.";
+         yield break;
+      }
+      int numberToPressTeardropOn = Convert.ToInt32(Commands[1]);
+      Debug.Log(numberToPressTeardropOn);
+      if (numberToPressTeardropOn < 0 || numberToPressTeardropOn >= 10)
+      {
+         yield return "sendtochaterror Error! Check if the number typed is a one-digit whole number.";
+         yield break;
+      }
+      while (Mathf.Floor(Bomb.GetTime()) % 10f != numberToPressTeardropOn)
+         yield return null;
+      Teardrop.OnInteract();
    }
 
    IEnumerator TwitchHandleForcedSolve () {
-      yield return null;
+      while (Mathf.Floor(Bomb.GetTime()) % 10f != finalAnswer)
+         yield return null;
+      Teardrop.OnInteract();
    }
 }
